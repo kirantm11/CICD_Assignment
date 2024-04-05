@@ -20,10 +20,10 @@ jobs:
           password: "Coep.3596"
 
       - name: Build Docker Image
-        run: docker build -t kirantm/ci-cd:v1 .
+        run: docker build -t kirantm/ci-cd:v2 .
         
       - name: Push Docker Image
-        run: docker push kirantm/ci-cd:v1
+        run: docker push kirantm/ci-cd:v2
   
   pull-and-run:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
           password: "Coep.3596"
 
       - name: Pull Docker Image
-        run: docker pull kirantm/ci-cd:v1
+        run: docker pull kirantm/ci-cd:v2
 
       - name: Run Docker Container
-        run: docker run --rm kirantm/ci-cd:v1
+        run: docker run --rm kirantm/ci-cd:v2
