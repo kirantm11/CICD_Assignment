@@ -36,7 +36,6 @@ jobs:
       - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
-          registry: "kirantm"
           username: "kirantm"
           password: "Coep.3596"
 
