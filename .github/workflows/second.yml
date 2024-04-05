@@ -17,9 +17,9 @@ jobs:
       - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
-          registry: https://hub.docker.com/repositories/kirantm
-          username: kirantm
-          password: Coep.3596
+          registry: "kirantm"
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Pull Docker Image
         run: docker pull ci-cd:v1
