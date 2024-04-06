@@ -16,8 +16,8 @@ jobs:
       - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
-          username: "${{ secrets.REGISTRY_USERNAME }}"
-          password: "${{ secrets.REGISTRY_PASSWORD }}"
+          username: "${{ secrets.USER }}"
+          password: "${{ secrets.PASS }}"
 
       - name: Build Docker Image
         run: docker build -t kirantm/ci-cd:v2 .
@@ -36,8 +36,8 @@ jobs:
       - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
-          username: "${{ secrets.REGISTRY_USERNAME }}"
-          password: "${{ secrets.REGISTRY_PASSWORD }}"
+          username: "${{ secrets.USER }}"
+          password: "${{ secrets.PASS }}"
 
       - name: Pull Docker Image
         run: docker pull kirantm/ci-cd:v2
