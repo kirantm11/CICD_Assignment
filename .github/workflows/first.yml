@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # You can specify the branch you want to trigger the workflow on
+      - main
 
 jobs:
   build-and-push:
@@ -47,4 +47,4 @@ jobs:
           OUTPUT=$(docker run --rm kirantm/ci-cd:v2)
           echo "Score:"
           echo "$OUTPUT"
-          if [[ `echo "$OUTPUT 0.40" | awk '{print ($1 < $2)}'` == 1 ]]; then echo "Insufficient Accuracy" && exit 1; fi
+          if [[ `echo "$OUTPUT 0.40" | awk '{print ($1 < $2)}'` == 1 ]]; then echo "Low Accuracy than expected" && exit 1; fi
