@@ -44,4 +44,8 @@ jobs:
         run: docker pull kirantm/ci-cd:v2
 
       - name: Run Docker Container
-        run: docker run --rm kirantm/ci-cd:v2
+        run: |
+          OUTPUT=$(docker run --rm kirantm/ci-cd:v2)
+          echo "Score:"
+          echo "$OUTPUT"
+          if [[ `echo "$OUTPUT 0.50" | awk '{print ($1 < $2)}'` == 1 ]]; then echo "Insufficient Accuracy" && exit 1; fi
